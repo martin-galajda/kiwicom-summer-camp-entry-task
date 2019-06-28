@@ -37,7 +37,7 @@ I had some problems with IAM not working as expected and this is superset of rol
 - Service Account/Service Account User
 
 ## Few notes
-I have used `kustomize` for separating `dev` / `prod` / `stagin` environments. I am aware that in practice it is better to have separate clusters for `prod` and `dev`.
+I have used `kustomize` for separating `dev` / `prod` / `staging` environments. I am aware that in practice it is better to have separate clusters for `prod` and `dev`.
 Also, initially I used terraform workpaces, but decided  to drop it as it seemed unnecessary for this project.
 
 ## API
