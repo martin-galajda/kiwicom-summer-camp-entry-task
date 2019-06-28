@@ -1,0 +1,7 @@
+namePrefix: prod-
+namespace: prod
+commonLabels:
+  env: prod
+  tier: api
+bases:
+  - ../../base

@@ -1,0 +1,19 @@
+{
+  "name": "kiwicomsummercamp-api",
+  "version": "0.0.1",
+  "description": "API for kiwicomsummercamp test project.",
+  "main": "index.js",
+  "author": "Martin Galajda <galajda.mato@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "kcors": "^2.2.2",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-compose": "^4.1.0",
+    "koa-compress": "^3.0.0",
+    "koa-router": "^7.4.0",
+    "pino": "^5.12.5",
+    "uuid": "^3.3.2"
+  }
+}

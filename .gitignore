@@ -1,0 +1,7 @@
+**/.terraform
+**/.secrets/**
+**/node_modules
+**/.env
+
+!.secrets/.gitkeep
+

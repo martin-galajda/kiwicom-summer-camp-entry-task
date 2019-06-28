@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiwicom-summercamp-entry-task-deployment
+  labels:
+    deployment: kiwicom-summercamp-entry-task
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      pod: kiwicom-summercamp-entry-task
+  template:
+    metadata:
+      labels:
+        pod: kiwicom-summercamp-entry-task
+    spec:
+      containers:
+        - name: kiwicom-summercamp-entry-task-api
+          image: eu.gcr.io/core-outcome-244717/kiwicomsummercamp-entry-task-api:0.0.1
+          imagePullPolicy: Always
+          env:
+            - name: DEMO_ENV_VARIABLE
+              value: 'demo'
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 400m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi

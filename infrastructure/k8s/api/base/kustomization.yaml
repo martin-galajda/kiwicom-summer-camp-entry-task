@@ -1,0 +1,5 @@
+commonLabels:
+  workload: kiwicom-summercamp-entry-task-api
+resources:
+  - deployment.yaml
+  - service.yaml

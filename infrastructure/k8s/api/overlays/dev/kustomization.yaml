@@ -1,0 +1,7 @@
+namePrefix: dev-
+namespace: dev
+commonLabels:
+  env: dev
+  tier: api
+bases:
+  - ../../base
