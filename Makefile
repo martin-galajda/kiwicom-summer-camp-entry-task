@@ -25,7 +25,6 @@ destroy_gke: .secrets/service-account.json
 create_gke: .secrets/service-account.json
 	export GOOGLE_APPLICATION_CREDENTIALS=$(PATH_TO_SERVICE_ACCOUNT_FILE) && \
 	cd infrastructure/terraform/gke && \
-	terraform workspace create prod && \
 	terraform init && \
 	terraform apply
 
