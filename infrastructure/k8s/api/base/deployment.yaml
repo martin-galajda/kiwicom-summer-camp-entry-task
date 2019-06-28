@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: kiwicom-summercamp-entry-task-api
-          image: eu.gcr.io/core-outcome-244717/kiwicomsummercamp-entry-task-api:0.0.1
+          image: eu.gcr.io/kiwicom-summer-camp-entry-task/kiwicomsummercamp-entry-task-api:0.0.1
           imagePullPolicy: Always
           env:
             - name: DEMO_ENV_VARIABLE

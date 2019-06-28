@@ -1,3 +1,3 @@
-
 gcloud auth activate-service-account --key-file=.secrets/service-account.json
-gcloud container clusters get-credentials kiwicomsummercamp-cluster-prod --zone europe-west2-b
+gcloud config set project kiwicom-summer-camp-entry-task
+gcloud container clusters get-credentials kiwicomsummercamp-cluster-default --zone europe-west2-b

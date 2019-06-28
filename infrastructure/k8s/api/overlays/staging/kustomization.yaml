@@ -1,0 +1,7 @@
+namePrefix: staging-
+namespace: staging
+commonLabels:
+  env: staging
+  tier: api
+bases:
+  - ../../base

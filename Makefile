@@ -10,7 +10,7 @@ GCR_IMAGE_URL := $(IMAGE_REGION)/$(PROJECT_ID)/$(IMAGE_NAME)
 version ?= latest
 
 init_prod_gke_cluster_credentials:
-	gcloud container clusters get-credentials kiwicomsummercamp-cluster-prod --zone europe-west2
+	gcloud container clusters get-credentials kiwicomsummercamp-cluster-default --zone europe-west2-b
 
 plan_gke: .secrets/service-account.json
 	export GOOGLE_APPLICATION_CREDENTIALS=$(PATH_TO_SERVICE_ACCOUNT_FILE) && \
@@ -25,6 +25,8 @@ destroy_gke: .secrets/service-account.json
 create_gke: .secrets/service-account.json
 	export GOOGLE_APPLICATION_CREDENTIALS=$(PATH_TO_SERVICE_ACCOUNT_FILE) && \
 	cd infrastructure/terraform/gke && \
+	terraform workspace create prod && \
+	terraform init && \
 	terraform apply
 
 build_api_image:
@@ -34,3 +36,7 @@ tag_and_push_api_image:
 	gcloud auth configure-docker && \
 	docker tag $(IMAGE_NAME):latest $(GCR_IMAGE_URL):$(version) && \
 	docker push $(GCR_IMAGE_URL):$(version)
+
+build-and-push-api-image:
+	@make build_api_image && \
+	make tag_and_push_api_image version=$(version)

@@ -4,12 +4,12 @@ terraform {
   required_version = "~> 0.12.2"
 
   backend "gcs" {
-    bucket  = "kiwicomsummercamp-tf-state"
+    bucket  = "kiwicom-summercamp-tf-state"
     prefix  = "terraform/state"
   }
 }
 
 provider "google" {
-  project     = "core-outcome-244717"
+  project     = "kiwicom-summer-camp-entry-task"
   region      = "europe-west2"
 }
