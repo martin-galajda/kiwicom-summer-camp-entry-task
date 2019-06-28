@@ -52,11 +52,3 @@ resource "google_container_node_pool" "kiwicomsummercamp_gke_node_pool" {
     tags = ["worker-node", "worker-node-custom-pool"]
   }
 }
-
-data "google_container_registry_image" "debian" {
-  name = "debian"
-}
-
-output "gcr_location" {
-  value = "${data.google_container_registry_image.debian.image_url}"
-}
